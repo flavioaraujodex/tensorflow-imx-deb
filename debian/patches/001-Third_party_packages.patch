@@ -1,0 +1,16 @@
+Index: tensorflow-imx-deb/tensorflow/lite/CMakeLists.txt
+===================================================================
+--- tensorflow-imx-deb.orig/tensorflow/lite/CMakeLists.txt
++++ tensorflow-imx-deb/tensorflow/lite/CMakeLists.txt
+@@ -170,9 +170,9 @@ if (NOT CMAKE_SYSTEM_PROCESSOR OR CMAKE_
+   find_package(NEON_2_SSE REQUIRED)
+   list(APPEND TFLITE_TARGET_DEPENDENCIES NEON_2_SSE::NEON_2_SSE)
+ endif()
+-find_package(cpuinfo REQUIRED)  #CPUINFO is used by XNNPACK and RUY library
++find_package(cpuinfo MODULE REQUIRED)  #CPUINFO is used by XNNPACK and RUY library
+ find_package(ml_dtypes REQUIRED)
+-find_package(ruy REQUIRED)
++find_package(ruy MODULE REQUIRED)
+ # Include TSL, which is in tensorflow/third_party
+ include_directories(
+   ${TSL_SOURCE_DIR}
