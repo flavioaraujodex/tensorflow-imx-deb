@@ -1,0 +1,4 @@
+tensorflow (2.16.2-1+toradex1) bookworm; urgency=medium
+  * Initial release
+
+ --  Flavio Ipiranga de Araujo Junior <flavio.araujo@toradex.com>  Fri, 15 Aug 2025 10:30:24 -0300

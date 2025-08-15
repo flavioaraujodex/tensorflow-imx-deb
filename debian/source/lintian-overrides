@@ -1,0 +1,4 @@
+tensorflow source: source-contains-prebuilt-binary [tensorflow/compiler/aot/codegen_test_o.golden]
+tensorflow source: source-contains-prebuilt-java-object [tensorflow/lite/java/demo/gradle/wrapper/gradle-wrapper.jar]
+tensorflow source: source-contains-prebuilt-java-object [tensorflow/lite/java/ovic/demo/gradle/wrapper/gradle-wrapper.jar]
+tensorflow source: debian-watch-does-not-check-openpgp-signature
