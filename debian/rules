@@ -35,18 +35,14 @@ override_dh_auto_configure:
 override_dh_install:
 	install -d usr/include/tensorflow/lite
 	install -d usr/include/tensorflow/core/public
-	ls -lha ${BUILDDIR}
-	cp --no-preserve=ownership -d ${BUILDDIR}/libtensorflow-lite.so.2.16.2 debian/tmp/usr/lib
-	cp --no-preserve=ownership -d ${BUILDDIR}/libtensorflow-lite.so debian/tmp/usr/lib
-#	cp --parents $(find . -name "*.h*") usr/include/tensorflow/lite
+
+	cp --no-preserve=ownership -d ${BUILDDIR}/libtensorflow-lite.so.2.16.2 debian/tmp/usr/lib/${DEB_HOST_MULTIARCH}
+	cp --no-preserve=ownership -d ${BUILDDIR}/libtensorflow-lite.so debian/tmp/usr/lib/${DEB_HOST_MULTIARCH}
+
 	find tensorflow/lite -name "*.h*" -exec cp --parents {} usr/include/tensorflow/lite \;
 	cp tensorflow/core/public/version.h usr/include/tensorflow/core/public
-#install -d ${PATH_DEV_HEADERS}/lite/profiling/telemetry/c/
+
 	dh_install
 
 override_dh_missing:
-#dh_missing --exclude=ruy/ruy/*
-
-override_dh_makeshlibs:
-	# Don't make disappearing symbols fatal, for now.
-	dh_makeshlibs -- -c0
+#skipping the missing check to avoid failed build
