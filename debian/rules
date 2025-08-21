@@ -9,9 +9,6 @@ BUILDDIR=${CURDIR}/debian/build
 %:
 	dh $@ --sourcedirectory=tensorflow/lite --builddirectory=${BUILDDIR}
 
-# See upstream instructions:
-# https://ai.google.dev/edge/litert/build/cmake
-
 override_dh_auto_configure:
 	dh_auto_configure --\
 		-Wno-dev \
